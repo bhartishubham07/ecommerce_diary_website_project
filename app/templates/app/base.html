@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="{% static 'app/css/mdb.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+
+    <title>Dairy Products | {% block title %}{% endblock title %}</title>
+
+</head>
+<body>
+    
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="">
+        <img src="{% static 'app/images/product/neel.png' %}" alt="" width="70px" height="50px">
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarLeftAlignExample"
+        aria-controls="navbarLeftAlignExample"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-white"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Products
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="{% url 'category' 'ML' %}">Milk</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'category' 'CR' %}">Curd</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'category' 'MS' %}">Milkshake</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'category' 'LS' %}">Lassi</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'category' 'GH' %}">Ghee</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'category' 'PN' %}">Paneer</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'category' 'CZ' %}">Cheese</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'category' 'IC' %}">Ice-cream</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'about' %}">About-US</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'contact' %}">Contact-US</a>
+          </li>
+        </ul>
+        <form class="d-flex input-group w-auto">
+          <input
+            type="search"
+            class="form-control rounded"
+            placeholder="Search"
+            aria-label="Search"
+            aria-describedby="search-addon"
+          />
+          <span class="input-group-text border-0" id="search-addon">
+            <i class="fas fa-search"></i>
+          </span>
+        </form>
+      </div>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown mx-2">
+          <a
+          class="nav-link dropdown-toggle text-white"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Shubham
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+          <li><a class="dropdown-item" href="#">Orders</a></li>
+          <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change Password</a></li>
+          <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+        </li> 
+        <li class="nav-item mx-2">
+          <a class="nav-link text-white" href="#">Cart 4</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link text-white" href="#">Wishlist 4</a>
+        </li>
+        {% else %}
+        <li class="nav-item mx-2">
+          <a class="nav-link text-white" href="{% url 'login' %}">Login</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link text-white" href="{% url 'customer_registeration' %}">Registeration</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+
+      {% block banner-slider %} {% endblock banner-slider %}
+      
+      {% block information %} {% endblock information %}
+      
+      
+      {% block main-content %} {% endblock main-content %}
+      
+      
+      <footer class="container-fluid fixed-bottom bg-success text-center p-2 mt-5">
+        Copyright : 2023 || Develop by : Shubham Bharti
+
+      </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="{% static 'app/js/mdb.min.js' %}"></script>
+    <script src="{% static 'app/js/all.min.js' %}"></script>
+    <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'app/js/myscript.js' %}"></script>
+</body>
+</html>
